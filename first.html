@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>My first Angular page</title>
+    <script src="angular.min.js"></script>
+    <script >
+    	
+    var Mymodule=angular.module("MyApplication",[]);
+    Mymodule.controller("MyController",function ($scope){
+
+    		$scope.MyData="hello angular";
+    		$scope.Emp={Employee:"mahesh",Address:"marathalli"};
+
+    		var emp1={};
+    		var emp2={};
+
+    		emp1.fname="fname1";
+    		emp1.lname="lname1";
+    		emp1.salary=10000;
+
+    		emp2.fname="fname2";
+    		emp2.lname="lname2";
+    		emp2.salary=20000;
+
+
+    		$scope.Employee=[emp1,emp2];
+
+    		//$scope.Emp.Employee="siddharth"
+    		//$scope.Emp.Address="bengaluru"
+
+    		$scope.MyValue="initial value";
+
+    		$scope.Addnewvalue=function(){
+    			alert($scope.MyValue);
+    		}
+
+    		//$scope.MyValue="initial value";
+    		$scope.GetNewValue=function(){
+    			$scope.MyData="new angular";
+    			$scope.Emp.Employee="siddharth singh"
+    			$scope.Emp.Address="domlur bengaluru"
+    		}
+    		
+    	});
+    	
+    </script>
+</head>
+<body>
+<div ng-app="MyApplication">
+	<div ng-controller="MyController">
+		employee : {{Emp.Employee}} <br />
+		address : {{Emp.Address}} <br />
+		<input type="text" name="name" value="{{MyData}}" />
+		<input type="button" name="name" ng-click="GetNewValue()" value="Get The Value" />
+
+			<br />
+			<br />
+		<input type="text" name="name" value="" ng-model="MyValue" />
+
+		<input type="button" name="name" value="click" ng-click="Addnewvalue()" />
+
+		<input type="text" name="name" value="" ng-model="MyValue" />
+
+		<br />
+		<br />
+		<br />
+
+		<table border="2">
+			<th>first name</th>
+			<th>last name</th>
+			<th>salary</th>
+			<tr ng-repeat="x in Employee">
+			
+
+				<td> {{x.fname}} </td>
+				<td> {{x.lname}} </td>
+				<td> {{x.salary}} </td>
+
+			</tr>
+		</table>
+		
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>My first Angular page</title>
+    <script src="angular.min.js"></script>
+    <script >
+    	
+    var Mymodule=angular.module("MyApplication",[]);
+    Mymodule.controller("MyController",function ($scope){
+
+    		$scope.MyData="hello angular";
+    		$scope.Emp={Employee:"mahesh",Address:"marathalli"};
+
+    		var emp1={};
+    		var emp2={};
+
+    		emp1.fname="fname1";
+    		emp1.lname="lname1";
+    		emp1.salary=10000;
+
+    		emp2.fname="fname2";
+    		emp2.lname="lname2";
+    		emp2.salary=20000;
+
+
+    		$scope.Employee=[emp1,emp2];
+
+    		//$scope.Emp.Employee="siddharth"
+    		//$scope.Emp.Address="bengaluru"
+
+    		$scope.MyValue="initial value";
+
+    		$scope.Addnewvalue=function(){
+    			alert($scope.MyValue);
+    		}
+
+    		$scope.MyValue="initial value";
+    		$scope.GetNewValue=function(){
+    			$scope.MyData="new angular";
+    			$scope.Emp.Employee="siddharth singh"
+    			$scope.Emp.Address="domlur bengaluru"
+    		}
+
+            $scope.IsAddNew=true;
+
+             $scope.Addvalue=function(){
+                 $scope.Employee.push(angular.copy($scope.e));
+                 console.log($scope.Employee);
+                 $scope.e=null;
+             }
+
+             // $scope.table="block";
+             // $scope.text="none";
+
+             
+             $scope.ShowAdd=function(){
+                $scope.IsAddNew=false;
+             }
+             $scope.CancelAdd=function(){
+                $scope.IsAddNew=true;
+             }
+            
+    		
+    	});
+    	
+    </script>
+</head>
+<body>
+<div ng-app="MyApplication">
+	<div ng-controller="MyController">
+
+		<div ng-show="IsAddNew" >
+
+        <input type="text" name="name" value="" id="1" ng-model="e.fname"/>
+        <input type="text" name="name" value="" id="2" ng-model="e.lname"/>
+        <input type="text" name="name" value="" id="3" ng-model="e.salary"/>
+
+         <input type="button" name="name" value="save" ng-click="Addvalue()" />
+        <input type="button" name="name" value="cancel" ng-click="ShowAdd()" />
+
+        </div>
+
+        <div ng-hide="IsAddNew" >
+        <input type="button" name="name" value="sub" ng-click="CancelAdd()" />
+		<table >
+			<th>first name</th>
+			<th>last name</th>
+			<th>salary</th>
+			<tr ng-repeat="x in Employee">
+			
+
+				<td> {{x.fname}} </td>
+				<td> {{x.lname}} </td>
+				<td> {{x.salary}} </td>
+
+			</tr>
+		</table>
+        </div>
+		
+	</div>
+</div>
+</body>
+</html>
