@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="angular.min.js"></script>
+    <script src="App.js"></script>
+    <script src="EmployeeService.js"></script>
+    <script src="EmployeeController.js"></script>
+    
+</head>
+<body>
+
+    <div ng-app="MyApplication">
+        <div ng-controller="MyController">
+            <!--name : {{emp.name}}<br/>
+            address : {{emp.address}}<br/>-->
+            <!--<input type="type" name="name" value=" " ng-model="MyValue" />                          //two-way binding
+            <input type="button" name="name" value="Add New Value" ng-click="AddNewValue()" />-->
+            
+            <!--<div style="display:{{MyStyle1}}>-->
+            <div ng-show="IsAddNew" ng-controller="AddNewController">
+
+                First Name: <input type="type" name="name" value=" " ng-model="E.fname" /><br />
+                Last Name: <input type="type" name="name" value=" " ng-model="E.lname" /><br />
+                Salary: <input type="type" name="name" value=" " ng-model="E.salary" /><br />
+                <input type="button" name="name" value="Save" ng-click="Save()" />
+                <input type="button" name="name" value="Cancel" ng-click="CancelAdd()" /><br />
+            </div>
+
+            <hr />
+
+            <!--<div style="display:{{MyStyle2}}>-->
+            <div ng-hide="IsAddNew">
+
+                <input type="button" name="name" value="AddNew" ng-click="AddNew()" />
+                <table border="1">
+                    <tr>
+                        <th>Fname</th>
+                        <th>Lname</th>
+                        <th>Salary</th>
+                    </tr>
+                    <tr ng-repeat="y in Employees">
+                        <td>{{y.fname}}</td>
+                        <td>{{y.lname}}</td>
+                        <td>{{y.salary}}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <hr />
+
+            <div style="display:none">
+                <input type="button" name="name" value="Get" ng-click="GetNewValue()" />
+                <span>{{MyData}}</span>
+                <input type="type" name="name" value="{{MyData}}" />
+            </div>
+        </div>
+
+</body>
+</html>
+
+<!-- ****************NOTES****************
+
+    - Angularjs has html and script losely attached.
+      changes made in html do not break the script as compared to normal javascript.
+      script becomes reusable
+
+    - module - it is like a package/container
+
+    - controller - contains logic and data required for UI. like a class a in java
+
+    - directives - html attributes which changes the default behaviour of html element. eg- ng-app, ng-controller
+
+    - {{MyData}} means display the value of MyData continuously
+      i.e. keep displaying the value until the value is changed. when value is changed, refresh it.
+
+    - JavaScript Object is a way to represent complex data in JS world.
+
+
+    - One-way binding means data will flow only from script to html.
+      It can be done anywhere. for example style, value or anywhere in html.
+
+    - Two-way binding means both script and html interact with each other
+
+
+-->
