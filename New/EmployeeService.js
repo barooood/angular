@@ -1,2 +1,2 @@
-MyModule.service("Service",EmployeeDummyService);
+MyModule.service("Service",EmployeeDynamicService);
 
