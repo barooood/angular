@@ -1,6 +1,6 @@
-MyModule.controller("MyController", function ($scope) {
+MyModule.controller("MyController", function ($scope,Service) {
 
-    $scope.Employees = EmployeeService();
+    $scope.Employees = Service;
 
     $scope.IsAddNew = false;
 
