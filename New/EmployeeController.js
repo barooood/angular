@@ -1,9 +1,9 @@
 MyModule.controller("MyController", function ($scope,Service) {
 
-    $scope.Employees = Service.Employees;
+   // $scope.Employees = Service.Employees;
 
-
-    $scope.IsAddNew = false;
+    $scope.Employees = Service.GetEmployee();
+    $scope.IsAddNew = true;
 
     $scope.AddNew = function () {
         $scope.IsAddNew = true;
